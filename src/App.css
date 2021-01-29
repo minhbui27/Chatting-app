@@ -1,0 +1,7 @@
+.App {
+  padding: 4rem;
+  display: grid;
+  grid-gap: 50px 100px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background-color: antiquewhite;
+}   
