@@ -1,13 +1,21 @@
 
 import './App.css';
-import Navbar from './components/Navbar';
-import Background from './components/Background';
+import LoginPage from './components/LoginPage';
+import React, { Component } from 'react';
+import { 
+  Route, 
+  BrowserRouter as Router, 
+  Switch,
+  Redirect,
+} from "react-router-dom"
+import HomePage from './components/HomePage';
+import {auth} from './components/Firebase';
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
-        <Background />
+        <LoginPage />
+        {/* <HomePage /> */}
     </div>
   );
 }
