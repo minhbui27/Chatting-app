@@ -1,43 +1,69 @@
-import React from 'react';
+import React, {useState} from 'react'
+import './styles/login-button.scss';
 
-import { useGoogleLogin } from 'react-google-login';
-// refresh token
-import { refreshTokenSetup } from '../utils/refreshToken';
+function Login(props) {
+    const [checked,setChecked] = useState(false)
+    const {email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError} = props;
+    return (
+        <div>
+            {/* <!-- Email input --> */}
+            <div className="form-outline mb-4">
+                <input type="text" id="form2Example1" className="form-control" placeholder="Enter email address" 
+                autoFocus required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <p className="errorMsg">{emailError}</p>
+            </div>
 
-const clientId =
-  '150980403378-h54jr1hbbt58e038a0d7tg5ng8atemua.apps.googleusercontent.com';
+            {/* <!-- Password input --> */}
+            <div className="form-outline mb-4">
+                <input type="password" id="form2Example2" className="form-control" placeholder="Enter password"
+                autoFocus required value={password} onChange={e => setPassword(e.target.value)}/>
+                <p className="errorMsg">{passwordError}</p>
+            </div>
 
-function Login() {
-  const onSuccess = (res) => {
-    console.log('Login Success: currentUser:', res.profileObj);
-    alert(
-      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    );
-    refreshTokenSetup(res);
-  };
+            {/* <!-- 2 column grid layout for inline styling --> */}
+            <div className="row mb-4">
+                <div className="col d-flex justify-content-center">
+                {/* <!-- Checkbox --> */}
+                <div className="form-check">
+                    <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3"
+                    checked="false"
+                    />
+                    <label for="form2Example3" >Remember me</label>
+                </div>
+                </div>
 
-  const onFailure = (res) => {
-    console.log('Login failed: res:', res);
-    alert(
-      `Failed to login. 😢`
-    );
-  };
+                <div className="col">
+                {/* <!-- Simple link --> */}
+                <a href="#!">Forgot password?</a>
+                </div>
+            </div>
 
-  const { signIn } = useGoogleLogin({
-    onSuccess,
-    onFailure,
-    clientId,
-    isSignedIn: true,
-    accessType: 'offline',
-    // responseType: 'code',
-    // prompt: 'consent',
-  });
-
-  return (
-    <div>
-        <button style = {{width:'25vh'}} class="button button-glow button-border button-rounded button-primary" onClick={signIn}>Login with Google</button>
-    </div>
-  );
+            {/* <!-- Submit button --> */}
+            <div>
+                {hasAccount ? (
+                    <>
+                    <div>
+                        <button type="submit" className="fill" onClick={handleLogin}>Sign in</button>
+                       <p>Doesn't have an account?<span onClick={() => setHasAccount(!hasAccount)}> <button className="btn btn-primary">Sign up</button></span></p>
+                    </div>
+                    </>
+                ) : (
+                    <>
+                        <div><button type="submit" className="fill" onClick={handleSignup}>Sign up</button>
+                        <p>Have an account?<span onClick={() => setHasAccount(!hasAccount)}> <button className="btn btn-primary">Sign in</button> </span></p></div>
+                        
+                    </>
+                )}
+                
+            
+            </div>
+            
+        </div>
+    )
 }
 
 export default Login;
