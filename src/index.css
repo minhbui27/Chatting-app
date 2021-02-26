@@ -51,7 +51,7 @@ code {
 }
 
 .col-7{
-  background-color:aquamarine;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
 .col-2{
