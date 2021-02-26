@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './styles/login-button.scss';
 
 function Login(props) {
-    const [checked,setChecked] = useState(false)
+    
     const {email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError} = props;
     return (
         <div>
