@@ -52,6 +52,7 @@ code {
 
 .col-7{
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  height: 100vh;
 }
 
 .col-2{
@@ -92,3 +93,29 @@ a.button-login:hover{
   padding: 0px 0px;
   margin: 0% 0%;
 } */
+
+
+
+.text-small {
+  font-size: 0.9rem;
+}
+
+.messages-box,
+.chat-box {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+input::placeholder {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+#anchor {
+  overflow-anchor: auto;
+  height:100px;
+}

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import Firebase from "./Firebase"
+import Firebase, {provider} from "./Firebase"
 import Login from "./Login"
 import HomePage from "./HomePage"
 
 
 function LoginPage() {
+    
     const [user,setUser] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -24,8 +25,6 @@ function LoginPage() {
 
     const handleLogin = () => {
         clearErrors();
-        console.log(email)
-        console.log(password)
         Firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
@@ -79,6 +78,24 @@ function LoginPage() {
         })
     }
 
+    const googleSignIn = () => {
+        Firebase.auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+
+            // // This gives you a Google Access Token. You can use it to access the Google API.
+            // var token = credential.accessToken;
+            // The signed-in user info.
+            setUser(result.user);
+
+        }).catch((error) => {
+            setEmailError(error.email);
+            
+        })
+    }
+
     useEffect(() => {
         authListener();
     }, [])
@@ -96,9 +113,9 @@ function LoginPage() {
                         <div class="row" style={{height: "25vh"}}></div>
                             <div class="row justify-content-center">
                                 <div class="col-3" id="login-box" style={{display: 'flex', justifyContent: 'center', alignItems:'center', height: '50vh'}}>
-                                    <div class = "col-align-center">
+                                    <div style={{width:"85%"}}>
                                         <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} 
-                    handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} 
+                    handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} googleSignIn={googleSignIn}
                     passwordError={passwordError}/>
                                     </div>
                                 </div>

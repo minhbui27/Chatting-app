@@ -5,8 +5,7 @@ import Chat from './Chat';
 function HomePage({handleLogout}) {
     return(
         <div class="container-fluid">
-            <Navbar />
-            <btn class="btn btn-primary btn-block mb-4" onClick={handleLogout}>Logout</btn>
+            <Navbar handleLogout={handleLogout}/>
             <div class="row justify-content-center" style={{height:"100vh"}} >
                 <div class="col-2"></div>
                 <div class="col-7"><Chat/></div>

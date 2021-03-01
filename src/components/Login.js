@@ -3,7 +3,7 @@ import './styles/login-button.scss';
 
 function Login(props) {
     
-    const {email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError} = props;
+    const {email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError, googleSignIn} = props;
     return (
         <div>
             {/* <!-- Email input --> */}
@@ -48,6 +48,7 @@ function Login(props) {
                     <>
                     <div>
                         <button type="submit" className="fill" onClick={handleLogin}>Sign in</button>
+                        <button type="submit" className="fill" onClick={googleSignIn}>Sign in with Google</button>
                        <p>Doesn't have an account?<span onClick={() => setHasAccount(!hasAccount)}> <button className="btn btn-primary">Sign up</button></span></p>
                     </div>
                     </>
