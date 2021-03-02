@@ -11,7 +11,7 @@ function HomePage({handleLogout}) {
                 <div class="row justify-content-center" style={{height:"100vh"}} >
                     <div class="col-2"><LeftSidebar /></div>
                     <div class="col-7"><Chat/></div>
-                    <div class="col-3"></div>
+                    <div class="col-3"><Todo/></div>
                 </div>
             </div>
         </div>
