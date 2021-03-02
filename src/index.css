@@ -119,3 +119,13 @@ input::placeholder {
   overflow-anchor: auto;
   height:100px;
 }
+
+.Left_Sidebar {
+  align-items: left;
+  height: 100vh;
+  width: 100%;
+  background-color:#b6d4ec;
+}
+.row-3{
+  background-color:#DE3C4B;
+}
