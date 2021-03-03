@@ -56,6 +56,7 @@ code {
 }
 
 .col-2{
+  padding: 0 0;
   background-color:antiquewhite;
 }
 
@@ -115,16 +116,12 @@ input::placeholder {
   color: #999;
 }
 
-#anchor {
-  overflow-anchor: auto;
-  height:100px;
-}
-
 .Left_Sidebar {
   align-items: left;
   height: 100vh;
   width: 100%;
   background-color:#b6d4ec;
+  overflow-wrap: break-word;
 }
 .row-3{
   background-color:#DE3C4B;
@@ -216,3 +213,4 @@ input::placeholder {
 .header-todo-bg h1 {
   background-color: antiquewhite;
 }
+

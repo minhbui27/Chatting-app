@@ -11,7 +11,7 @@ function LeftSidebar(){
         <div className="Left_Sidebar">
             {/* <div className="container"> */}
                 {/* <div className="row-3"> */}
-                    <h3>Class Name</h3>
+                    <h3 style={{paddingTop:'5%'}}>Class Name</h3>
                     <p id="test" onClick="test()">testnjewnfjasldkjfnwefns;aidfnienflasjfahewfn</p>
                 {/* </div> */}
             {/* </div> */}
