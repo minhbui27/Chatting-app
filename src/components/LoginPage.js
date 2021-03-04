@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Firebase, {provider} from "./Firebase"
 import Login from "./Login"
 import HomePage from "./HomePage"
-
+import WorkspaceTop from "./WorkspaceTop"
+import TestWorkspaceCard from "./TestWorkspaceCard"
 
 function LoginPage() {
     
@@ -104,7 +105,9 @@ function LoginPage() {
         <div>
             {user ? (
                 <>
-                    <HomePage handleLogout={handleLogout}/>
+                    <WorkspaceTop />
+                    <TestWorkspaceCard />
+                    {/* <HomePage handleLogout={handleLogout}/> */}
                 </>
             ) : (
                 <>
