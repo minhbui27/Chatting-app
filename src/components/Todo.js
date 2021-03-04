@@ -1,13 +1,18 @@
 import React from 'react'
 import Tasks from './Tasks'
 import { useState } from 'react'
-import AddTask from './AddTask'
+import AddTask_test from './AddTask_test'
 import HeaderTodo from './HeaderTodo'
 
-const Todo = () => {
+const Todo = (props) => {
+    console.log(props.tasks)
+    console.log(props.tasks.length)
     const [showAddTask, setShowAddTask] = useState(false)
     const [tasks, setTasks] = useState([])
-
+    
+    
+    
+    
     // Add Task
     const addTask = (task) => {
         const id = Math.floor(Math.random() * 10000) + 1 // assign task to a random id TEMPORARY
@@ -32,9 +37,9 @@ const Todo = () => {
         <div>
             <HeaderTodo onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
             {/*Ternary Operator. If showAddTask is true, send it to AddTask, else do nothing! */}
-            {showAddTask && <AddTask onAdd={addTask} />} 
-            {tasks.length > 0 ? (
-                <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> ) : ( 'No tasks'
+            {showAddTask && <AddTask_test onAdd={addTask} />} 
+            {props.tasks.length > 0 ? (
+                <Tasks tasks={props.tasks} onDelete={deleteTask} onToggle={toggleReminder} /> ) : ( 'No tasks'
             )}
         </div>
     )
@@ -42,4 +47,3 @@ const Todo = () => {
 
 
 export default Todo
-
